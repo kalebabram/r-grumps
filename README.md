@@ -45,13 +45,13 @@ conda install kabram::r-grumps
 ```sh
 R -e 'devtools::install_github("kalebabram/r_grumps")'
 ```
-Note: R library "devtools" is required: `install.packages('devtools')` or `conda install r-devtools` for this approach. To get the CLI entrypoint, download `cligrumps.R` from the repository. You can rename the Rscript to `r-grumps` and relocate it to a directory in your $PATH. 
+Note: R library "devtools" is required: `install.packages('devtools')` or `conda install r-devtools` for this approach. To get the CLI entrypoint, download `cligrumps.R` from the repository. You can rename the Rscript to `r-grumps`, relocate it to a directory in your $PATH, and make it executable for equivalent behavior to the conda install of `r-grumps`. 
 
 #### Source
 
 All neccessary files needed to build the R package of **GRUMPS** are found in this repository.
 
-In order to get the CLI entrypoint for the R package, simply download the Rscript `cligrumps.R` to your computer. You can rename the Rscript to `r-grumps`, relocate it to a directory in your $PATH, and make it executable for easier use. 
+In order to get the CLI entrypoint for the R package, simply download the Rscript `cligrumps.R` to your computer. You can rename the Rscript to `r-grumps`, relocate it to a directory in your $PATH, and make it executable for equivalent behavior to the conda install of `r-grumps`.
 
 ## Dependencies
 `r-grumps` utilizes the following R libraries:
