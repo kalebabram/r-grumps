@@ -11,7 +11,7 @@ It can be run in `summary`, `regular`, `strict`, `sigma`, `target`,
 For more information about these modes please see the white paper:
 https://doi.org/10.1101/2022.12.19.521123
 
-**Note: This repository is only for the R portion of `grumps`. **
+**Note: This repository is only for the R portion of** **`grumps`**
 
 Please see the full repository for more information: https://www.github.com/kalebabram/grumps.git
 
