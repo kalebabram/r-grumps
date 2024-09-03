@@ -121,46 +121,16 @@ r-grumps -m heatmap -f [filepath_to_dataset]
 
 * **Produce dendrogram of clustering results.** Performs clustering without creating a clustered heatmap. Outputs the clustering results in the following 3 files: a colored dendrogram of the clustering results as a .png, a csv file (genomeID and clusterID as columns), and a .nwk file contaning a newick tree of the dendrogram used to create the clustered heatmap.
 ```sh
-$ grumps -m regular [filepath_to_dataset] 
+r-grumps -m dendrogram -f [filepath_to_dataset] 
 ```
-* **Create clusters at a different cutoff.** `r-grumps` by default uses the max height of the dendrogram multiplied by 1.25E-02 to cut the clustered dendrogram and produce clusters (for E. coli, this height roughly corresponds to subgroups at the phylogroup/phylotype level. The value supplied to `-c`/`--cutoff` will be what the max height of the clustered dendrogram will be multiplied to obtain clusters (i.e. `-c 1` would cut the tree at the root 
+* **Create clusters at a different cutoff.** `r-grumps` by default uses the max height of the dendrogram multiplied by 1.25E-02 to cut the clustered dendrogram and produce clusters (for E. coli, this height roughly corresponds to subgroups at the phylogroup/phylotype level). The value supplied to `-c`/`--cutoff` will be what the max height of the clustered dendrogram will be multiplied to obtain clusters (i.e. `-c 1` would cut the tree at the root creating a single cluster)
 ```sh
-$ grumps -m strict [filepath_to_dataset]
-```
-
-* **Create clusters at a set cutoff.** `r-grumps` by default uses the max height of the dendrogram multiplied by 1.25E-02 to produce clusters (for E. coli, this height roughly corresponds to subgroups at the phylogroup/phylotype level. 
-```sh
-$ grumps -m strict [filepath_to_dataset]
+r-grumps -m heatmap -c 1.25E-01 -f [filepath_to_dataset]
 ```
 
-* **Clean input dataset using 'clique' cleaning mode.** Clean the input dataset with a graph-based clustering approach. Useful for dividing datasets containing multiple species into a collection of uncleaned species level datasets.
+* **Create clusters at a set cutoff.** `r-grumps` by default uses the max height of the dendrogram multiplied by 1.25E-02 to produce clusters (for E. coli, this height roughly corresponds to subgroups at the phylogroup/phylotype level). The value supplied to `-c`/`--cutoff` will be what the height of the clustered dendrogram will be cut to obtain clusters. Note: this height is dataset dependent and should not be applied in a "one size fits all" fashion.
 ```sh
-$ grumps -m clique [filepath_to_dataset]
-```
-
-* **Clean input dataset using 'sigma' cleaning mode.** Clean the input dataset using a three-sigma rule based cleaning step applied to the extreme left and right tails of value distribution for each genome. Note: this step is automatically performed in 'regular' and 'strict' cleaning modes if `-s no` not specified.
-```sh
-$ grumps -m sigma [filepath_to_dataset]
-```
-
-* **Clean input dataset using 'target' cleaning mode.** Clean the input dataset using a set of target genomes. Any genome that has a value greater than the cutoff (default 0.05) to any of the provided target genomes are removed.
-```sh
-$ grumps -m target -t [filepath_to_file_with_target_ids] [filepath_to_dataset]
-```
-
-* **Clean input dataset using 'remover' cleaning mode.** Remove a set of genomes from the input dataset by ID. 
-```sh
-$ grumps -m remover -r [filepath_to_file_with_ids_to_remove] [filepath_to_dataset]
-```
-
-## Helper Script
-`distmat_converter` reads a regularly delimited file and returns a .csv distance matrix result. By default, the output of `mash dist` can be used by `distmat_converter` to obtain a Mash distance matrix for **GRUMPS**
-```sh
-$ distmat_converter [filepath_to_mash_output.tab]
-```
-If an ANI delimited file is input, please specify how `distmat_converter` should handle the ANI values with the options `-c yes` or `-i yes`. Note: `-c` or `-i` are conflicting options with `-c` having a higher priority. `-c yes` converts the ANI values to Mash values via (100-ANI)/1. `-i yes` simply inverts ANI values via 100-ANI. 
-```sh
-$ distmat_converter -c yes [filepath_to_fastANI_output.tab]
+r-grumps -m general -f [filepath_to_dataset]
 ```
 
 ## Example 
@@ -199,9 +169,9 @@ Now that we have our final cleaned dataset and the summary statistics, we can us
 
 ### Step 4: Run r_grumps to obtain the final clustered heatmap and grouping information
 ```sh
-r_grumps -f ./data/Staphylococcus_epidermidis.tab_distmat_cleaned_regular_sigma_0.05_ward_distmat.csv -m heatmap -c 0.0125 -g ward.D2 
+r-grumps -f ./data/Staphylococcus_epidermidis.tab_distmat_cleaned_regular_sigma_0.05_ward_distmat.csv -m heatmap -c 0.0125 -g ward.D2 
 ```
-**Note:** The above step is the equivalent of running `r_grumps -f ./data/Staphylococcus_epidermidis.tab_distmat_cleaned_regular_sigma_0.05_ward_distmat.csv` as the command line options used in **Step 4** are the same as the default values for these options.
+**Note:** The above step is the equivalent of running `r-grumps -f ./data/Staphylococcus_epidermidis.tab_distmat_cleaned_regular_sigma_0.05_ward_distmat.csv` as the command line options used in **Step 4** are the same as the default values for these options.
 
 ![r_clustered_heatmap](data/Staphylococcus_epidermidis.tab_distmat_cleaned_regular_sigma_0.05_ward_r_ward.D2_heatmap.png)
 We can now take the clustered heatmap from **Step 2** and **Step 4** and open them with GIMP to create the final figure.
