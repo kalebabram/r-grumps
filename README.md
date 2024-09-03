@@ -11,6 +11,8 @@ It can be run in `summary`, `regular`, `strict`, `sigma`, `target`,
 For more information about these modes please see the white paper:
 https://doi.org/10.1101/2022.12.19.521123
 
+**Note:** This repository is only for the R portion of `r-grumps`. Please see the full repository for more information: https://www.github.com/kalebabram/grumps.git
+
 ## Installation
 
 `grumps` is installable from conda, pip or from source. 
@@ -22,7 +24,7 @@ The best installation method for `grumps` is conda within a new environment.
 ```sh
 conda env create -n grumps_env kabram::grumps
 ```
-Note: using [mamba](https://mamba.readthedocs.io/en/latest/) as a replacement for conda can spead up the environment creation process.
+**Note:** using [mamba](https://mamba.readthedocs.io/en/latest/) as a replacement for conda can spead up the environment creation process.
 
 #### Installing into existing environment
 ```sh
@@ -43,13 +45,13 @@ conda install kabram::r-grumps
 ```sh
 pip install grumps
 ```
-Note: the pip version does not have the R dependecies needed for `r-grumps`. 
+**Note:** the pip version does not have the R dependecies needed for `r-grumps`. 
 
 #### r-devtools
 ```sh
 R -e 'devtools::install_github("kalebabram/r_grumps")'
 ```
-Note: R library `devtools` is required: `install.packages('devtools')` or `conda install r-devtools` for this approach. To get the CLI entrypoint, download `cligrumps.R` from the repository. You can rename the Rscript to `r-grumps`, relocate it to a directory in your $PATH, and make it executable for equivalent behavior to the conda install of `r-grumps`. 
+**Note:** R library `devtools` is required: `install.packages('devtools')` or `conda install r-devtools` for this approach. To get the CLI entrypoint, download `cligrumps.R` from the repository. You can rename the Rscript to `r-grumps`, relocate it to a directory in your $PATH, and make it executable for equivalent behavior to the conda install of `r-grumps`. 
 
 #### Source
 All neccessary files needed to build the python package of `grumps` are found in `src/grumps` within this repository.
@@ -114,7 +116,7 @@ if (grumps$mode == 'general'){
 ### `r-grumps`
 The following section provides an overview of the command line component of `r-grumps`. Please use the help page, `r-grumps -h`, to see all command line options and what modes these options can be used with. 
 
-Note: all modes print the height used to cut the clustered dendrogram and produce clusters (this information is also found in the filenames output by `r-grumps`). 
+**Note:** all modes print the height used to cut the clustered dendrogram and produce clusters (this information is also found in the filenames output by `r-grumps`). 
 
 * **Produce help page.** Quickly check the software usage and available command line options.
 ```sh
