@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-library(r-grumps)
+library(rgrumps)
 library(optparse)
 option_list = list(
   make_option(c("-f", "--file"), type="character", default=NULL, help="Dataset file path", metavar="character"),
