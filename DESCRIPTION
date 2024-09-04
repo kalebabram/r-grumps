@@ -1,6 +1,6 @@
 Package: rgrumps
 Title: R package for GRUMPS 
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person("Kaleb", "Abram", , "abram.kaleb@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3311-662X"))
