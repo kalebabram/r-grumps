@@ -18,7 +18,6 @@
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom ape as.phylo write.tree
 #' @importFrom MASS write.matrix
-#' @importFrom sparcl ColorDendrogram
 #'
 #' @examples
 #' grumpsFunc('/filepath/to/distmat.csv')
