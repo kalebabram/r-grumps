@@ -13,7 +13,7 @@
 treeFunc <- function(grumpsObj){
   tr <- as.phylo(grumpsObj$hClust)
   out_prefix <- paste('_',grumpsObj$cutoff,'_',grumpsObj$clusteringmethod,'_', sep = '')
-  outfile <- paste(strsplit(grumpsObj$file, '_distmat.csv')[[1]][1],'_r',out_prefix,max(grumpsObj$hClust$height*grumpsObj$cutoff),'_newick.nwk',sep = '')
+  outfile <- paste(strsplit(grumpsObj$file, '_distmat.csv')[[1]][1],'_r', out_prefix,'_',max(grumpsObj$hClust$height*grumpsObj$cutoff),'_dendrogram.nwk', sep = '')
   write.tree(tr, file = outfile)
 }
 
