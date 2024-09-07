@@ -69,7 +69,6 @@ In order to get the CLI entrypoint for the R package, simply download the Rscrip
 * ape
 * grDevices
 * RColorBrewer
-* sparcl
 * stats
 * utils
 
