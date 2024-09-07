@@ -16,6 +16,6 @@ labeloutFunc <- function(grumpsObj){
   clean_label <- as.matrix(grumpsObj$hClust$labels)
   clean_group <- as.matrix(grumpsObj$mcl)
   output <- cbind(clean_label,clean_group)
-  outfile <- paste(strsplit(grumpsObj$file, '_distmat.csv')[[1]][1],'_r',out_prefix,'clust_groups_labels_cutoff_',max(grumpsObj$hClust$height*grumpsObj$cutoff),'.csv',sep = '')
+  outfile <- paste(strsplit(grumpsObj$file, '_distmat.csv')[[1]][1],'_r', out_prefix,'_',max(grumpsObj$hClust$height*grumpsObj$cutoff),'_groups_labels.csv', sep = '')
   write.matrix(output,outfile,sep=',')
 }
